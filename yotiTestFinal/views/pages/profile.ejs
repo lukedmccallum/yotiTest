@@ -1,0 +1,38 @@
+<%
+const attributes = []
+const ageVerifications = profile.getAgeVerifications();
+if (ageVerifications) {
+  ageVerifications.forEach(ageVerification => {
+    attributes.push({
+      name: 'Age Verification',
+      prop: ageVerification.getAttribute(),
+      age_verification: ageVerification,
+      icon: "yoti-icon-verified"
+    });
+  });
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result</title>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+  <main>
+        <% attributes.forEach(function(item) { %>
+        <% if (!item.prop || !item.prop.getValue()) { return; } %>
+
+            <% if ((profile.getAgeVerified().getValue())=="true") {%>
+                <h1>18+</h1>
+            <% } else { %>
+                <h1>You have to be 18 to access this site.</h1>
+            <% } %>
+        <% }); %>
+  </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html">
+<head>
+<title>Log In</title>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+  <main>
+      <h1>Login for 18+ Users Only</h1>
+      <div>
+        <div id="yoti-share-button"></div>
+      </div>
+  </main>
+  <script src="https://www.yoti.com/share/client/"></script>
+  <script>
+    window.Yoti.Share.init({
+      "elements": [
+        {
+          "domId": "yoti-share-button",
+          "scenarioId": "<%= yotiScenarioId %>",
+          "clientSdkId": "<%= yotiClientSdkId %>",
+          "button": {
+            "label": "Verify age with Yoti now",
+            "align": "center",
+            "width": "auto",
+	    "height": "10px",
+            "verticalAlign": "top"
+          },
+          "type": "modal"
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
